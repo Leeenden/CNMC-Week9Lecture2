@@ -1,5 +1,7 @@
+// require bcryptjs
 const bcrypt = require("bcryptjs");
 
+// bcrypt hasPass encryption fucntion 
 exports.hashPass = async (req, res, next) => {
     try {
         req.body.pass = await bcrypt.hash(req.body.pass, 8);

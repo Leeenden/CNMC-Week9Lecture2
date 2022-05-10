@@ -1,5 +1,5 @@
 const Movie = require("./movieModel");
-
+// add movie by title, actors[]
 exports.addMovie = async (req, res) => {
     try {
         const newMovie = await Movie.create(req.body);
@@ -9,7 +9,7 @@ exports.addMovie = async (req, res) => {
         res.status(500).send({ error: error.message })
     }
 };
-
+// list all movies 
 exports.listMovies =  async (req, res) => {
     try {
         const movies = await Movie.find({});
@@ -19,7 +19,7 @@ exports.listMovies =  async (req, res) => {
         res.status(500).send({ error: error.message })
     }
 };
-
+// update movie actors by movie title 
 exports.updateMovie = async (req, res) => {
     try {
         //await model update one method
@@ -33,7 +33,7 @@ exports.updateMovie = async (req, res) => {
         res.status(500).send({ error: error.message })
     }
 };
-
+// delete movie by title 
 exports.deleteMovie = async (req, res) => {
     //delete One movie from the db
     try {
