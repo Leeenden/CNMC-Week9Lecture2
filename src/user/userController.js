@@ -46,3 +46,12 @@ exports.deleteUser = async (req, res) => {
   }
 };
 //login function
+exports.userLogin = async (req, res) => {
+  try {
+    res.status(200).send("Successfully Logged in");
+      
+  } catch (error) {
+      console.log(error);
+      res.status(100).send({ error: error.message })
+  }
+};
