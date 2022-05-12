@@ -48,7 +48,7 @@ exports.deleteUser = async (req, res) => {
 //login function
 exports.userLogin = async (req, res) => {
   try {
-    res.status(200).send("Successfully Logged in");
+    res.status(200).send(loggedIn);
       
   } catch (error) {
       console.log(error);
