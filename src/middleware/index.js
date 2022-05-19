@@ -5,7 +5,7 @@ const User = require("../user/userModel");
 // bcrypt hasPass encryption fucntion 
 exports.hashPass = async (req, res, next) => {
     try {
-        req.body.pass = await bcrypt.hash(req.body.pass, 8);
+        req.body.password = await bcrypt.hash(req.body.password, 8);
         next();
     } catch (error) {
         console.log(error);
@@ -18,7 +18,7 @@ exports.hashDecrypt = async (req, res, next) => {
         return res.status(400).send("Cannot find user");
     }  
     try {
-        if (await bcrypt.compare(req.body.pass, user.pass)) {
+        if (await bcrypt.compare(req.body.password, user.password)) {
             loggedIn = user;
             next();
         } else {
